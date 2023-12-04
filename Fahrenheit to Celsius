@@ -1,0 +1,19 @@
+import java.util.* ;
+import java.io.*; 
+class Solution {
+	
+	public static void main(String args[]) {
+		
+		// Write code here
+		Scanner sc = new Scanner(System.in);
+		int S = sc.nextInt();
+		int E = sc.nextInt();
+		int W = sc.nextInt();
+
+		int celsius;
+		for(int i =S; i<=E; i=i+W){
+			celsius = (i-32)*5/9;
+			System.out.println(i+"\t"+celsius);
+		}
+	}
+}
