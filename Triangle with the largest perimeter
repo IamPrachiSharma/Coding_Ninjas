@@ -1,0 +1,33 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.ArrayList;
+
+public class Solution {
+    public static int maxPerimeterTriangle(ArrayList<Integer> arr, int n) {
+        int count = 0;        
+        Collections.sort(arr); // sort the initial array
+        int i = n-1; int j = i-1;
+        // We start from largest number first and compare it with its adjacent elements to the left, if there sum is
+        // greater than number, then find its parameter, else if the sum of two number is smaller or equal to the number
+        // we, shift to next largest number i.e., from (n-1) to (n-2) where n is length of array, because on left side of two
+        // numbers there will be numbers whose sum will always be less or equal to sum of those two numbers, therefore, will
+        // not find maximum parameter if we iterate forward
+        while (j > 0 && i >= 2){
+            if (arr.get(j)+arr.get(j-1)>arr.get(i)){
+                count = Math.max(count,(arr.get(i)+arr.get(j)+arr.get(j-1)));
+                --i;
+                j=i-1;
+            }
+            else {
+                --j;
+            }
+            if (j == 0){
+                --i;
+                j = i-1;
+            }
+        }
+        return count;
+
+        // Time complexity = O(nlogn)
+    }
+}
