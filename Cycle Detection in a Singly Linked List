@@ -1,0 +1,19 @@
+public class Solution {
+
+    public static boolean detectCycle(Node head) {
+        //Your code goes here
+        if(head==null && head.next==null){
+            return false;
+        }
+        Node first = head;
+        Node slow = head;
+        while(first!=null && first.next!=null){
+            slow = slow.next;
+            first = first.next.next;
+            if(first == slow){
+                return true;
+            }
+        }
+        return false;
+    }
+}
