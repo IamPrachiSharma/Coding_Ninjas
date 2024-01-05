@@ -1,0 +1,49 @@
+public class Solution
+
+{
+
+    public static Node segregateEvenOdd(Node head)
+
+    {
+
+        Node ans=new Node(-1);
+
+        Node curr=head;
+
+        Node dummy=ans;
+
+        while(curr!=null){
+
+          if(curr.data%2==0){
+
+             ans.next=new Node(curr.data);
+
+             ans=ans.next;
+
+          }
+
+          curr=curr.next;
+
+        }
+
+        curr=head;
+
+        while(curr!=null){
+
+          if(curr.data%2!=0){
+
+            ans.next=new Node(curr.data);
+
+            ans=ans.next;
+
+          }
+
+          curr=curr.next;
+
+        }
+
+        return dummy.next;
+
+    }
+
+}
