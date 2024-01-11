@@ -1,0 +1,32 @@
+import java.util.* ;
+
+import java.io.*; 
+
+public class Solution {
+
+    public static int getMinimumLength(int[] position, int k) {
+
+        // Write your code here.
+
+        int n = position.length;
+
+        Arrays.sort(position);
+
+        int ans = Integer.MAX_VALUE;
+
+        for(int i=0;i<=n-k;i++){
+
+            int sum = 0;
+
+            sum = position[i+k-1] - position[i] + 1;
+
+            ans = Math.min(sum, ans);
+
+        }
+
+        return ans;
+
+    }
+
+}
+
